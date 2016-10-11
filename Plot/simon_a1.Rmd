@@ -1,0 +1,212 @@
+---
+title: "MATH203 A1"
+output: pdf_document
+---
+created by Simon Hsu
+ID: 260610820
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Q2.20
+```{r}
+library(dplyr)
+q1table = data_frame(goalkeeper= rep(c("Dive left","Stay middle","Dive right"),each=3),
+match = rep(c("Team behind","Tied", "Team ahead"),3),
+proportion = c(0.29,.48,0.51,0,.03,.01,0.71,0.49,0.48))
+q1table
+library(ggplot2)
+colours <-c("red","green","blue")
+barplot(as.matrix(q1table[3:3]), main="My side by side barchart", xlab="goalkeeper", ylab = "proportion", q1table.name = c("Dive left","Stay middle","Dive right"), cex.lab = 1.5, cex.main = 1.4, beside=TRUE, col=colours)
+legend("topleft", c("Team behind","Tied", "Team ahead"), cex=1.3, bty="n", fill=colours)
+```
+
+The first 3 bars represents `dive left`, the middle three represents `stay middle`, and the last three represents `dive right`. 
+(PS. i tried putting the goalkeeper position names on the chart and getting rid of the word 'proportion' on x axis but they don't seem to work)
+
+My inference: According to the side by side barchart, diving right while the team is behind is the trend here, while no matter in what situations, it is rare for the goal keeper to stay middle, and lastly, while the team is ahead or tied the goalkeeper ten to dive left.
+
+## Q2.46 [do not do (d)]
+Replace part (d) with the the following:
+d) What is the mean, median, standard deviation and range of the SAT scores in 2011? for 2014?
+
+This problem uses the “SAT” dataset
+```{r}
+sat<-read.csv("SAT.csv")
+#part a: The differences in thedistributions of state score from 2011 to 2014 are there are more higher scores (1700 or above), the middle scores have gone lower (1550 to 1700), and the lower scores have gone up (1550 and below).
+hist(sat$SAT2011, col="gray", main="SAT2011 distribution", xlab="score")
+hist(sat$SAT2014, col="gray", main="SAT2014 distribution", xlab="score")
+#part b
+Difference = sat$SAT2014 - sat$SAT2011
+hist(Difference, col="gray", main="Differences between SAT2011 and SAT2014", xlab="Difference")
+#part c
+#from the graph in part b we can conclude that the most of the scores have either gone up by 50 or gone down by 50, a few of score gone down a lot around (-100 to -150) and (-200 to -250).
+#part d
+#in 2011
+mean(sat$SAT2011)
+median(sat$SAT2011)
+sd(sat$SAT2011)
+range(sat$SAT2011)
+#in 2014
+mean(sat$SAT2014)
+median(sat$SAT2014)
+sd(sat$SAT2014)
+range(sat$SAT2014)
+```
+that concludes question 2, i dont know where should i put my answers at so i just print everything out, i hope the marker doesnt miss anything and deduct my point! :P
+
+## Q2.92
+This problem uses the “NUC” dataset (see attached CSV file).
+In addition to finding the range, variance and standard deviation, find the mean, median and mode for each
+part a), b), c).
+```{r}
+nuc<-as_data_frame(read.csv("NUC.csv"))
+nuc
+#The following code creates a dataset eliminating the largest value from the dataset (by arranging the dataset in order of decreasing PLANTS and then taking all but the first observation):
+nuc_partb = nuc %>% arrange(desc(PLANTS)) %>% slice(2:n())
+nuc_partb
+#The following bit of code creates a dataset eliminating both the largest (first) and smallest (last) values from the sorted dataset
+nuc_partc = nuc %>% arrange(desc(PLANTS)) %>% slice(2:(n()-1))
+nuc_partc
+#part a
+mean(nuc$PLANTS)
+median(nuc$PLANTS)
+var(nuc$PLANTS)
+sd(nuc$PLANTS)
+range(nuc$PLANTS)
+a <-c(nuc$PLANTS)
+tempa <- table(as.vector(a))
+names(tempa)[tempa==max(tempa)]
+#part b
+#the differences between a and b is every value went down, and the maxrange went from 11 to 9
+mean(nuc_partb$PLANTS)
+median(nuc_partb$PLANTS)
+var(nuc_partb$PLANTS)
+sd(nuc_partb$PLANTS)
+range(nuc_partb$PLANTS)
+b <-c(nuc_partb$PLANTS)
+tempb <- table(as.vector(b))
+names(tempb)[tempb==max(tempb)]
+#part c
+#the differences between a and b is every value went up, and the minrange went from 1 to 3 and so is the mode
+mean(nuc_partc$PLANTS)
+median(nuc_partc$PLANTS)
+var(nuc_partc$PLANTS)
+sd(nuc_partc$PLANTS)
+range(nuc_partc$PLANTS)
+c <-c(nuc_partc$PLANTS)
+tempc <- table(as.vector(c))
+names(tempc)[tempc==max(tempc)]
+```
+## Q2.110
+This problem uses the “SAND” dataset (see attached CSV file).
+```{r}
+sand<-as_data_frame(read.csv("SAND.csv"))
+sand
+#i dont really understand where are the rules for me to imply in order to complete these questions, i will try answer them in my own way.
+#part a: group A sandstone slices will fall at minimum area around 55,20
+mean(sand$PermA)
+sd(sand$PermA)
+#part b: group B sandstone slices will fall at maximum area around 150.00
+mean(sand$PermB)
+sd(sand$PermB)
+#part c: group C sandstone slices will fall at minimum area around 52.20
+mean(sand$PermC)
+sd(sand$PermC)
+#par d
+#type B appears to decay faster.
+```
+## Q2.131
+part a) z scores:2.0,-1.0,0.5,-2.5 respectively
+
+2=(x-2.7)/.5 
+(2)(.5) = x-2.7 
+1=x-2.7 
+x=3.7 
+
+-1.0=(x-2.7)/.5
+(-1.0)(.5)=x-2.7
+-.5=x-2.7
+x=-.5+2.7=2.2
+
+.5=(x-2.7)/.5
+(.5)(.5)=x-2.7
+.25=x-2.7
+x=.25+2.7=2.95
+
+-2.5=(x-2.7)/.5 
+(-2.5)(.5) = x-2.7 
+-1.25 =x-2.7 
+x=2.7-1.25 = 1.45 
+
+par b) student is on probation for z-scores below -1.6 which can be converted in GPA to
+-1.6=(x-2.7)/.5
+(-1.6)(.5)=x-2.7
+-.08=x-2.7
+x=1.9 (GPA)
+
+part c) 
+the limits of z scores are z = 1.0 and 2.0; in terms of GPA are GPA = 3.2 and 3.7;the assumption i make about the distribution is mound-shaped, symmetric.
+
+## Q2.146
+(a) before treatment:
+The approximate 25th percentile PASI score  is 10. The approximate median is 15. The approximate 75th percentile is 28.
+(b) after treatment:
+The approximate 25th percentile PASI score is 2. The approximate median is 4. The approximate 75th percentile is 7.
+(c) comment on the effectiveness of treament: From looking at the 75th percentile after treatment is lower than the 25th percentile
+before treatment, it means the treament is effective.
+
+## Q2.152
+z score = (x-mean)/sd
+
+part a) z = (4-7)/1 = -3
+
+part b) from the answer in part a i believe the librarian's claim is incorrect.
+
+part c) the standard normal distributions states that between 1.96 and -1.96 lie 95% of observation. So a z-score of -3 means you have a less than 5% chance of finding a sample with so large a deviation from mean.
+
+part d) if the standard deviation were 2, my answers to parts b and c will change, due to the increased chance of finding a sample with the deviation from mean.
+
+## Q2.188
+This problem uses the “JREAD” dataset (see attached CSV file).
+Solve only parts a), c) and d). In part a), rather than constructing a stem-and-leaf plot, construct a histogram.
+```{r}
+jread<-as_data_frame(read.csv("JREAD.csv"))
+jread
+#part a
+hist(jread$BOOKS, col="gray", main="Histogram of books read by students", xlab="Books read")
+
+#part c
+mean(jread$BOOKS)
+median(jread$BOOKS)
+m <-c(jread$BOOKS)
+tempm <- table(as.vector(m))
+names(tempm)[tempm==max(tempm)]
+
+#part d
+#the mean and median indicate the skewness of the distribution of the data is symmetrical.
+
+```
+
+## Q2.192
+This problem uses the “TILL” dataset (see attached CSV file).
+To find the minimum use the min() command, to find the maximum use the max() command.
+```{r}
+till<-as_data_frame(read.csv("TILL.csv"))
+till
+#part a
+max(till$RATIO)
+min(till$RATIO)
+mean(till$RATIO)
+#part b
+#yes i consider the largest ratio to be unsusally large due to the difference between mean and max ratio.
+#part c
+till<-read.csv("TILL.csv")
+head(till)
+boxplot(till$RATIO~till$BOREHOLE, ylab="RATIO", main="The age of glacial drifts", xlab="Borhole")
+```
+
+## Q2.210
+Same average but different standard deviation
+If i have to choose i would definately choose the professor's class who had a smaller standard deviation. (first professor's)
+a small standard deviation indicates that the data points are clustered closely around the mean
