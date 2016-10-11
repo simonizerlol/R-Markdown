@@ -1,0 +1,15 @@
+1.  Download the R installer package/exe for your software platform here:   http://cran.stat.sfu.ca/  . 
+
+2.  Double click to install R on your machine.   I think the issue is that R needs to be installed *first* which is why some of you are having difficulties (if you install Rstudio first, the new version of R confuses it a bit).  It was not like this previously which is why I did not recommend to install R first originally, but I'm fairly certain this is what is causing some issues for people.  So please make sure to install R first on your machine. 
+
+3.  Download R Studio from here:  https://www.rstudio.com/products/rstudio/download2/
+
+4.  Double click to install R Studio.  
+
+5.  Open R Studio. 
+
+6. At the console prompt in the bottom left, please enter the following command: 
+
+install.packages(c("ggplot2", "knitr", "rmarkdown"),dependencies=TRUE)
+
+You will need to have an active internet connection and it may ask you to choose an R mirror (chose whichever one you want -- something in Canada may go faster, but it may also not). 

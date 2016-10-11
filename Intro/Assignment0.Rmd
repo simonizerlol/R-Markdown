@@ -1,0 +1,43 @@
+---
+title: 'Assignment #0'
+output: html_document
+---
+
+###Submit this Assignment on myCourses by uploading a compiled (knitted) PDF file (not .Rmd!) to the Assignment #0 submission folder by Friday, September 16th at 11:59 p.m. EST. 
+
+*** 
+
+1.  Please enter your name next to the bullet below: 
+
+ * $$\begin{aligned}Simon Hsu\end{aligned}$$
+ 
+*** 
+
+2.  Please enter your student ID **in bold** next to the bullet below. 
+
+ * $$\begin{aligned}260610820\end{aligned}$$
+
+***
+
+3.  Choose your favorite **two (2)** math equations from [this Wikipedia page](https://en.wikipedia.org/wiki/List_of_equations) and transcribe them below using 
+Rmarkdown (LaTeX) math syntax. 
+
+$$
+\begin{aligned}y(x)
+ & = x \frac{dy}{dx} + f\frac{dy}{dx}
+\end{aligned} Clairaut's equation
+$$
+
+***
+
+4. Now, for this assignment, using the code from the R Markdown Intro, write code in the R code block below to add the median and the standard deviation to the summary table of departure delays with the mean and the sample size using the *median()* and *sd()* functions. 
+
+```{r}
+### Be sure these two libraries are installed -- see the Intro! 
+library(dplyr)
+library(nycflights13)
+summarise(flights,
+delay = mean(dep_delay, na.rm = TRUE), n=n())
+```
+
+###END OF ASSIGNMENT 
