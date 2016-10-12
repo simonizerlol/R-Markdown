@@ -1,0 +1,158 @@
+---
+title: "MATH203 A2"
+output: html_document
+---
+created by Simon Hsu 
+ID: 260610820
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+##Q3.34
+let NB = navy blue sock
+
+let B = black sock
+
+let r and l = right and left sock
+
+the probability for the first pick at random = 0.25 (out of 4 socks)
+
+the probability of the secon pick at random = 0.333 (out of 3 socks)
+
+0.25*0.333 = 0.0833
+
+given four socks, 4*0.0833 = 0.3333
+
+therefore the chance of getting 50% right match is not true. It's less.
+
+##Q3.62
+a. the probability that the cell phone is using color code 5 is 85/160 = 0.53125
+
+b. the probability that the cell phone is using color code 5 or color code 0 is 35/160 + 85/160 = 0.21875 + 0.53125 = 0.75
+
+c. the probabiliy that the cell phone used is Model 2 and the color code is 0 is 75/160 * 35/160 = 0.46875 * 0.21875 = 0.10254
+
+##Q3.66
+the only way to prove it is to print out all the possible permutations for 9 and 10 and compare.
+
+Nine: 
+621 
+612 
+531 
+522 
+513 
+441 
+432 
+423 
+414 
+351 
+342 
+333 
+324 
+315 
+261 
+252 
+243 
+234 
+225 
+216 
+162 
+153 
+144 
+135 
+126 
+----- 
+P(9) = 25/216 
+
+Ten: 
+631 
+622 
+613 
+541 
+532 
+523 
+514 
+451 
+442 
+433 
+424 
+415 
+361 
+352 
+343 
+334 
+325 
+316 
+262 
+253 
+244 
+235 
+226 
+163 
+154 
+145 
+136 
+----- 
+P(10) = 27/216
+
+therefore P(9) is less than P(10).
+
+##Q3.90
+a. Given the previous sleep stage was the Wake state, the probability that the current sleep stage is REM is 1733/7987 = 0.21708
+
+b. Given the current sleep stage is REM, the probability that the previous sleep stage was not the Wake state is (7609 + 346) / (7609 + 346 + 175) = 0.97847
+
+c. The evebts {previous stage is REM} and {current stage is REM} are NOT mutually exclusive.
+
+d. The events {previous stage is REM} and {current stage is REM} are NOT independent.
+
+e. The events {previous stage is Wake} and {current stage is Wake} are NOT independent.
+
+##Q3.100
+
+a. Let n = normal cell and m = mutant cell. The possible pedigress are: nn, nm, mn, and mm.
+
+b. Assume each "daughter cell" is equally likely to be normal or mutant, then P(n) = P(m) = 0.5
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from part a we know that the probability of possible pedigrees listed is 0.5 * 0.5 = 0.25.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The probability that a single, normal cell that divides into two offspring will result in a least one mutant cell is P(nm) + P(mn) + P(mm) = &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.25 + 0.25 + 0.25 = 0.75
+
+c. Assume P(m) = 0.25, we know P(n) = 1- 0.2 = 0.8.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The probability that a single normal cell that divides into two offspring will result at least one mutant cell is P(nm) + P(mn) + P(mm) = 0.8 * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.2 + 0.2 * 0.8 + 0.2 * 0.2 = 0.36. 
+
+d. Since the first generation resulted in nn, there are 4 possible pedigrees, nn, nm, mn, and mm. Since there are 4 possible pedigrees for the first and second generation normal cell, there are 4 * 4 = 16 possible second generation pedigrees from nn. They are: nnnn nnnm nnmn nmnn mnnn nnmm nmnm nmmn mnnm mnmn mmnn nmmm mnmm mmnm mmmn mmmm
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If the first generation resulted in nm, then the first generation cell has 4 possible pedigrees, nn, nm, mn, and mm. Since there are 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;possible pedigrees for the first genertion and 1 possible pedigrees for the second generation, there are 4 possible second generation &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pedigrees from a first generation nm. They are: nnmm nmmm mnmm mmmm
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If the first generation resulted in mn, then the fist generation mutant cell has one possible pedigree, mn, since the first gneeration normal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cell has 4 possible peigree. There are 4 possible second generation pedigrees from a first genration nm. They are: mmnn mmnm mmmn &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mmmm
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If the first generation resulted in mm, there is one possible pedigree, mm. Therefore there is only one possible second generation &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pedigree from a fist generation mm. It is: mmmm.
+
+e. Knowing that a "daughter" cell is equally likely to be mutant or normal. I can find the probability that a single, normal cell that divides into two offspring will result in at least one mutant cell after the second generation. By calculating 1 - P(nnnn) which is 1 - (1/4)(1/16) = 1 - 1/64 = 0.9844
+
+##Q.3.122
+a. The number of possible ordering over the eight days is 8! = 40320
+
+b. The probability that ESPN is selected on Monday, Jully 11th is 1/8.
+
+c. The probability that MTV is selected on Sunday is 2/8=1/4 due to the fact there are two Sundays.
+
+##Q.3.144
+P(defect #1) = 0.03
+P(not defect #1) = 0.97
+P(defect #2) = 0.05
+P(not defect #2) = 0.95
+P(defect #1, not defect #2) = 0.03 * 0.95 = 0.0285
+P(defect #2, not defect #1) = 0.05 * 0.97 = 0.0485
+P(defect #1, defect #2) = 0.03 * 0.05 = 0.0015
+
+The probability that an actual defect exists when NDE detects a hit is P(defect and hit) = 1 - (0.97 * 0.95) =  0.0785
+
+##Q.3.146
+
+##Q.3.184
+
+##Q.3.188
+
+##Q.3.192
