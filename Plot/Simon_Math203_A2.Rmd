@@ -1,9 +1,11 @@
 ---
 title: "MATH203 A2"
-output: html_document
+output: pdf_document
 ---
+
 created by Simon Hsu 
 ID: 260610820
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -139,20 +141,63 @@ b. The probability that ESPN is selected on Monday, Jully 11th is 1/8.
 c. The probability that MTV is selected on Sunday is 2/8=1/4 due to the fact there are two Sundays.
 
 ##Q.3.144
+
 P(defect #1) = 0.03
+
 P(not defect #1) = 0.97
+
 P(defect #2) = 0.05
+
 P(not defect #2) = 0.95
+
 P(defect #1, not defect #2) = 0.03 * 0.95 = 0.0285
+
 P(defect #2, not defect #1) = 0.05 * 0.97 = 0.0485
+
 P(defect #1, defect #2) = 0.03 * 0.05 = 0.0015
 
 The probability that an actual defect exists when NDE detects a hit is P(defect and hit) = 1 - (0.97 * 0.95) =  0.0785
 
 ##Q.3.146
+Multiplicative rule
+$$
+\begin{aligned}
+Pr(A \cap B) = Pr(A | B ) \times Pr(B)
+\end{aligned}
+$$
+
+the probabiliy of event 'ok' occurs, given event 'ok' 
+we know $$ Pr(A | B ) $$ is 0.9 and we know $$ Pr(B) $$ is 0.8
+then $$ Pr(A \cap B) $$ is 0.89 
 
 ##Q.3.184
+a. sample space is 20, sample points for this experiment is 10.
+
+b. two rules for the probabilities assigned to sample points: they must be between 0 and 1 inclusively; all probabilities assigned to sample points in the sample space must sum to 1.
+the probabilities to each of the sample points is $$\frac{1}{2}$$
+
+c. the probability that the psychlogist guesses all classifications correctly is $$10/20\times9/19\times8/18\times7/17\times6/16\times5/15\times4/14\times3/13\times2/12\times1/11 = 1/184756$$
+
+d. the probability that the psychologist guesses at least 9 of the 10 high-anxiety subjexts correctly is $$10/20\times9/19\times8/18\times7/17\times6/16\times5/15\times4/14\times3/13\times2/12= 1/16796$$
 
 ##Q.3.188
+The probability of of getting boys or girls is $$P(Boy-Boy or Girl-Girl) = \frac{1085+926}{4208} = 0.478$$
+That concludes there is no evidence that shows having boys or girls runs in the family due to the probability is less than 0.5.
 
 ##Q.3.192
+a. the probability that a player winsd the game on the first roll of the dice is 
+$$P(7)+P(11)$$
+$$P(7)=6/36=1/6, P(11)=2/36=1/18$$
+$$therefore 1/6 + 1/18 = 2/9$$
+
+b. the probability that a player loses the game on the first roll of the dice is 
+$$P(2)+P(3)$$
+$$P(2)=1/36, P(3)=2/36$$
+$$therefore 1/36+2/36=1/12$$
+
+c. if the player throws a total of 4 on the first roll, the probability that the game ends (win or lose) ob the next roll is 
+$$P(4)+P(7)$$
+$$P(4)=3/36, P(7)=6/36$$
+$$therefore 3/36+6/36 = 1/4$$
+
+end of the assignment 2
